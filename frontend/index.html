@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продуктовый дашборд</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <h1>📊 Продуктовый дашборд</h1>
+      <div class="filters">
+        <select id="sprint-select">
+          <option value="all">Все спринты</option>
+          <option value="current">Текущий спринт</option>
+        </select>
+        <button id="refresh-btn">Обновить</button>
+      </div>
+    </header>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Lead Time (дни)</h3>
+        <p class="value" id="leadTimeValue">-</p>
+        <div class="chart-container">
+          <canvas id="leadTimeChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Завершено задач</h3>
+        <p class="value" id="completedTasksValue">-</p>
+        <div class="chart-container">
+          <canvas id="tasksChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Баг-репорты</h3>
+        <p class="value" id="bugsValue">-</p>
+        <div class="chart-container">
+          <canvas id="bugsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metric-card wide">
+        <h3>Время по этапам</h3>
+        <div class="chart-container">
+          <canvas id="stagesChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metric-card wide">
+        <h3>AI-Прогноз сроков</h3>
+        <div id="predictions-container">
+          <div class="prediction-loading">Загрузка прогнозов...</div>
+        </div>
+        <div class="chart-container">
+          <canvas id="forecastChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metric-card wide">
+        <h3>Список задач</h3>
+        <table id="tasks-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Задача</th>
+              <th>Статус</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Прогноз по задаче</h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
