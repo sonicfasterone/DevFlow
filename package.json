@@ -1,0 +1,15 @@
+{
+  "name": "dashboard12",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "serve -s frontend",
+    "start": "npm run start:backend",
+    "install:all": "npm install && cd backend && npm install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.3"
+  }
+}
