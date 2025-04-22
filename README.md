@@ -1,3 +1,2 @@
 # DevFlow
-TulaHack
-Сос
+
